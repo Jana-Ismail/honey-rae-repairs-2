@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getAllTickets } from "../../services/ticketService.js"
 import './Tickets.css'
+import { Ticket } from "./Ticket.jsx"
 
 export const TicketList = () => {
     const [allTickets, setAllTickets] = useState([])
@@ -44,16 +45,7 @@ export const TicketList = () => {
             <article className="tickets">
                 {filteredTickets.map((ticket) => {
                     return (
-                    <section className="ticket" key={ticket.id}>
-                        <header className="ticket-info">#{ticket.id}</header>
-                        <div>{ticket.description}</div>
-                        <footer>
-                        <div>
-                            <div className="ticket-info">emergency </div>
-                            <div>{ticket.emergency ? "yes" : "no"}</div>
-                        </div>
-                        </footer>
-                    </section>
+                        <Ticket ticket={ticket} key={ticket.id} />
                     )
                 })
                 }
