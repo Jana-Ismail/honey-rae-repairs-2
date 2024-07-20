@@ -1,5 +1,32 @@
-import "./index.css"
+import './App.css'
+import { TicketList } from './components/tickets/TicketList.jsx'
+
 
 export const App = () => {
-  return(<h1>Welcome to Your First React App!</h1>)
+
+return (
+  <TicketList />
+)
+
 }
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
