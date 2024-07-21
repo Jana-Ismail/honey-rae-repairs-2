@@ -3,6 +3,7 @@ import { getAllTickets } from "../../services/ticketService.js"
 import './Tickets.css'
 import { Ticket } from "./Ticket.jsx"
 import { TicketFilterBar } from "./TicketFilterBar.jsx"
+import { CustomerList } from "../customers/CustomerList.jsx"
 
 export const TicketList = () => {
     const [allTickets, setAllTickets] = useState([])
