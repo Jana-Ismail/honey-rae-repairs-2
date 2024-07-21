@@ -23,7 +23,7 @@ return (
       <Route path="tickets" element={<TicketList />} />
       <Route path="customers">
         <Route index element={<CustomerList />} />
-        <Route path=":customerId" element={<CustomerDetails />} />
+        <Route path=":userId" element={<CustomerDetails />} />
       </Route>
       <Route path="employees" element={<EmployeeList />} />
     </Route>
