@@ -4,11 +4,11 @@ import { getCustomerByUserId } from "../../services/customerService"
 import "./Customers.css"
 
 export const CustomerDetails = () => {
-const { userId } = useParams()
+const { customerUserId } = useParams()
 const [customer, setCustomer] = useState([])
 
 const getCustomer = () => {
-    getCustomerByUserId(userId).then((data) => {
+    getCustomerByUserId(customerUserId).then((data) => {
         const customerObj = data[0]
         setCustomer(customerObj)
     })
@@ -16,7 +16,7 @@ const getCustomer = () => {
 
 useEffect(() => {
     getCustomer()
-}, [userId])
+}, [customerUserId])
 
     return (
         <section className="customer">

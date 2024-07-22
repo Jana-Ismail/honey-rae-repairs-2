@@ -6,6 +6,7 @@ import { TicketList } from './components/tickets/TicketList.jsx'
 import { NavBar } from './components/nav/NavBar.jsx'
 import { Welcome } from './components/welcome/Welcome.jsx'
 import { CustomerDetails } from './components/customers/CustomerDetails.jsx'
+import { EmployeeDetails } from './components/employees/EmployeeDetails.jsx'
 
 
 
@@ -23,9 +24,12 @@ return (
       <Route path="tickets" element={<TicketList />} />
       <Route path="customers">
         <Route index element={<CustomerList />} />
-        <Route path=":userId" element={<CustomerDetails />} />
+        <Route path=":customerUserId" element={<CustomerDetails />} />
       </Route>
-      <Route path="employees" element={<EmployeeList />} />
+      <Route path="employees">
+        <Route index element={<EmployeeList />} />
+        <Route path=":employeeUserId" element={<EmployeeDetails />} />
+      </Route>
     </Route>
   </Routes>
 )
