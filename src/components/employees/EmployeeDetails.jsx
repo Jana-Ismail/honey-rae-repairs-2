@@ -6,17 +6,30 @@ import "./Employees.css"
 export const EmployeeDetails = () => {
     const { employeeUserId } = useParams()
     const [ employee, setEmployee ] = useState([])
+    const [ employeeTickets, setEmployeeTickets ] = useState([])
 
-    const getEmployee = () => {
-        getEmployeeByUserId(employeeUserId).then((data) => {
+    // const getEmployee = () => {
+    //     getEmployeeByUserId(employeeUserId).then((data) => {
+    //         const employeeObj = data[0]
+    //         setEmployee(employeeObj)
+
+    //     })
+    // }
+
+    useEffect(() => {
+        getEmployeeByUserId(employeeUserId).then(data => {
             const employeeObj = data[0]
             setEmployee(employeeObj)
         })
-    }
+    }, [employeeUserId])
 
     useEffect(() => {
-        getEmployee()
-    }, [])
+        getEmployeeByUserId(employeeUserId).then(data => {
+            const employeeTicketsNum = data[0].employeeTickets?.length
+            setEmployeeTickets(employeeTicketsNum)
+        })
+    }, [employee])
+
 
     return (
         <section className="employee">
@@ -32,6 +45,10 @@ export const EmployeeDetails = () => {
             <div>
                 <span className="employee-info">Specialty : </span>
                 {employee.specialty}
+            </div>
+            <div>
+                <span className="employee-info">Working on :</span>
+                {employeeTickets} tickets
             </div>
         </section>
     )
