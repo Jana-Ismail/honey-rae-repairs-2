@@ -2,7 +2,7 @@ export const getAllTickets = () => {
     return fetch('http://localhost:8088/serviceTickets?_embed=employeeTickets').then(res => res.json())
 }
 
-export const assignEmployeeTicket = (employeeTicket) => {
+export const assignTicket = (employeeTicket) => {
     return fetch(
         `http://localhost:8088/employeeTickets`, {
             method: 'POST',
@@ -14,7 +14,7 @@ export const assignEmployeeTicket = (employeeTicket) => {
     )
 }
 
-export const updateServiceTicket = (closedTicket) => {
+export const updateTicket = (closedTicket) => {
     return fetch(
         `http://localhost:8088/serviceTickets/${closedTicket.id}`, {
             method: 'PUT',

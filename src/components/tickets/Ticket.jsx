@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { getEmployees } from "../../services/employeeService"
-import { assignEmployeeTicket, updateServiceTicket } from "../../services/ticketService"
+import { assignTicket, updateTicket } from "../../services/ticketService"
 
 export const Ticket = ( {ticket, currentUser, getAndSetTickets}) => {
     const [employees, setEmployees] = useState([])
@@ -29,7 +29,7 @@ export const Ticket = ( {ticket, currentUser, getAndSetTickets}) => {
             serviceTicketId: ticket.id,
         }
 
-        assignEmployeeTicket(employeeTicket).then(() => {
+        assignTicket(employeeTicket).then(() => {
             getAndSetTickets()
         })
         
@@ -44,7 +44,7 @@ export const Ticket = ( {ticket, currentUser, getAndSetTickets}) => {
             dateCompleted: new Date()
         }
 
-        updateServiceTicket(closedTicket).then(() => {
+        updateTicket(closedTicket).then(() => {
             getAndSetTickets()
         })
     }
